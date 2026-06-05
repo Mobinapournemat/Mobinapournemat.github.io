@@ -25,20 +25,19 @@
 
     /* ── HEADER ── */
     .header {
-      display: grid;
-      grid-template-columns: 1fr 160px;
-      gap: 36px;
+      overflow: hidden;
       margin-bottom: 36px;
     }
 
     .photo {
-      display: block;
-      width: 160px;
-      height: 200px;
+      float: right;
+      margin: 0 0 16px 32px;
+      width: 155px;
+      height: 195px;
       object-fit: cover;
       object-position: center top;
       border-radius: 6px;
-      align-self: start;
+      display: block;
     }
 
     .header-text h1 {
@@ -167,8 +166,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 560px) {
-      .header { grid-template-columns: 1fr; }
-      .photo { width: 140px; height: 175px; margin: 0 auto; }
+      .photo { float: none; display: block; margin: 0 auto 20px; width: 140px; height: 175px; }
       .links { justify-content: center; }
       .header-text { text-align: center; }
       .exp-item { flex-direction: column; gap: 0; }
@@ -180,6 +178,7 @@
 
   <!-- HEADER -->
   <div class="header">
+    <img class="photo" src="profile.jpeg" alt="Mobina Pournemat" />
     <div class="header-text">
       <h1>Mobina Pournemat</h1>
       <p>
@@ -203,7 +202,6 @@
         <a href="https://github.com/Mobinapournemat" target="_blank">GitHub</a>
       </div>
     </div>
-    <img class="photo" src="profile.jpeg" alt="Mobina Pournemat" />
   </div>
 
   <!-- PUBLICATIONS -->
