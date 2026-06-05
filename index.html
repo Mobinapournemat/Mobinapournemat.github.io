@@ -25,19 +25,20 @@
 
     /* ── HEADER ── */
     .header {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 160px;
       gap: 36px;
-      align-items: flex-start;
       margin-bottom: 36px;
     }
 
     .photo {
-      flex-shrink: 0;
+      display: block;
       width: 160px;
       height: 200px;
       object-fit: cover;
       object-position: center top;
       border-radius: 6px;
+      align-self: start;
     }
 
     .header-text h1 {
@@ -166,8 +167,10 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 560px) {
-      .header { flex-direction: column; align-items: center; text-align: center; }
+      .header { grid-template-columns: 1fr; }
+      .photo { width: 140px; height: 175px; margin: 0 auto; }
       .links { justify-content: center; }
+      .header-text { text-align: center; }
       .exp-item { flex-direction: column; gap: 0; }
     }
   </style>
@@ -177,7 +180,6 @@
 
   <!-- HEADER -->
   <div class="header">
-    <img class="photo" src="profile.jpeg" alt="Mobina Pournemat" />
     <div class="header-text">
       <h1>Mobina Pournemat</h1>
       <p>
@@ -202,13 +204,14 @@
         <a href="https://github.com/Mobinapournemat" target="_blank">GitHub</a>
       </div>
     </div>
+    <img class="photo" src="profile.jpg" alt="Mobina Pournemat" />
   </div>
 
   <!-- PUBLICATIONS -->
   <h2>Publications</h2>
 
   <div class="pub">
-    <div class="pub-title">Reasoning Under Uncertainty: Exploring Probabilistic Reasoning Capabilities of LLMs</div>
+    <div class="pub-title"><a href="https://arxiv.org/abs/2509.10739">Reasoning Under Uncertainty: Exploring Probabilistic Reasoning Capabilities of LLMs</a></div>
     <div class="pub-authors">
       <span class="me">Mobina Pournemat</span>, Keivan Rezaei, Gowthami Sriramanan, Arman Zarei, Jiacheng Fu, Yizhou Wang, Hamid Eghbalzadeh,
       <a href="https://www.cs.umd.edu/~sfeizi/" style="color:#555;text-decoration:none;">Soheil Feizi</a>
@@ -218,7 +221,7 @@
 
   <div class="pub">
     <div class="pub-title">
-      <a href="https://armanzarei.github.io/SliderEdit/">SliderEdit: Continuous Image Editing with Fine-Grained Instruction Control</a>
+      <a href="https://arxiv.org/abs/2511.09715">SliderEdit: Continuous Image Editing with Fine-Grained Instruction Control</a>
     </div>
     <div class="pub-authors">
       Arman Zarei, Samyadeep Basu, <span class="me">Mobina Pournemat</span>, Sayan Nag, Ryan Rossi,
