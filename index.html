@@ -5,1003 +5,249 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mobina Pournemat</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --navy:   #0d1b2a;
-      --blue:   #1e56a0;
-      --blue-light: #2e72c8;
-      --blue-pale: #dbeafe;
-      --white:  #ffffff;
-      --off-white: #f7f9fc;
-      --gray-100: #eef2f7;
-      --gray-300: #c6d0dc;
-      --gray-500: #7b8fa6;
-      --gray-700: #3d5166;
-      --text:   #1a2a3a;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Jost', sans-serif;
-      font-weight: 400;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.7;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: #222;
+      background: #fff;
+      padding: 60px 20px 80px;
     }
 
-    /* ─── NAV ──────────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(13,27,42,0.96);
-      backdrop-filter: blur(8px);
-      padding: 0 5%;
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
+      gap: 36px;
+      align-items: flex-start;
+      margin-bottom: 36px;
     }
 
-    .nav-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: 0.03em;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray-300);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--white); }
-
-    /* ─── HERO ─────────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--navy) 0%, #1a2f48 60%, #1e3f6a 100%);
-      display: flex;
-      align-items: center;
-      padding: 80px 8% 60px;
-      gap: 5%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -5%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(46,114,200,0.18) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    #hero::after {
-      content: '';
-      position: absolute;
-      bottom: -10%;
-      left: 20%;
-      width: 350px;
-      height: 350px;
-      background: radial-gradient(circle, rgba(30,86,160,0.12) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero-text {
-      flex: 1;
-      z-index: 1;
-      animation: fadeUp 0.9s ease both;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--blue-light);
-      border: 1px solid rgba(46,114,200,0.5);
-      padding: 0.35em 0.9em;
-      border-radius: 2px;
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: var(--gray-300);
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-    }
-
-    .hero-subtitle strong { color: #7ec8f7; font-weight: 500; }
-
-    .hero-interests {
-      font-size: 0.88rem;
-      color: var(--gray-500);
-      margin-bottom: 2.2rem;
-      font-style: italic;
-    }
-
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6em 1.4em;
-      border-radius: 4px;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--blue);
-      color: var(--white);
-      border: 1px solid var(--blue);
-    }
-    .btn-primary:hover {
-      background: var(--blue-light);
-      border-color: var(--blue-light);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--gray-300);
-      border: 1px solid rgba(198,208,220,0.4);
-    }
-    .btn-outline:hover {
-      color: var(--white);
-      border-color: var(--gray-300);
-      transform: translateY(-1px);
-    }
-
-    .hero-photo-wrap {
-      flex: 0 0 auto;
-      z-index: 1;
-      animation: fadeUp 1.1s ease both;
-    }
-
-    .hero-photo {
-      width: clamp(220px, 22vw, 300px);
-      height: clamp(280px, 28vw, 380px);
+    .photo {
+      flex-shrink: 0;
+      width: 160px;
+      height: 200px;
       object-fit: cover;
       object-position: center top;
-      border-radius: 8px;
-      border: 3px solid rgba(46,114,200,0.4);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 0 0 6px rgba(46,114,200,0.08);
+      border-radius: 6px;
     }
 
-    /* ─── SECTIONS ─────────────────────────────────── */
-    section {
-      padding: 80px 8%;
-    }
-
-    section:nth-child(even) {
-      background: var(--off-white);
-    }
-
-    .section-label {
-      font-size: 0.72rem;
+    .header-text h1 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 2rem;
       font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.5rem;
+      margin-bottom: 14px;
+      color: #111;
     }
 
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 2.5rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 2px solid var(--gray-100);
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 50px;
-      height: 2px;
-      background: var(--blue);
-    }
-
-    /* ─── ABOUT ─────────────────────────────────────── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-text p {
+    .header-text p {
+      color: #333;
+      margin-bottom: 12px;
       font-size: 1rem;
-      color: var(--gray-700);
-      margin-bottom: 1rem;
-      line-height: 1.8;
     }
 
-    .interest-chips {
+    .links {
+      margin-top: 14px;
+      font-size: 0.95rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
+      gap: 4px 0;
     }
 
-    .chip {
-      background: var(--blue-pale);
-      color: var(--blue);
-      padding: 0.4em 1em;
-      border-radius: 20px;
-      font-size: 0.82rem;
-      font-weight: 500;
-    }
-
-    .about-info-box {
-      background: var(--white);
-      border: 1px solid var(--gray-100);
-      border-radius: 8px;
-      padding: 1.8rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    }
-
-    .info-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--gray-100);
-    }
-    .info-item:last-child { border-bottom: none; }
-
-    .info-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--gray-500);
-      font-weight: 600;
-    }
-
-    .info-value {
-      font-size: 0.88rem;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .info-value a {
-      color: var(--blue);
+    .links a {
+      color: #1a56a0;
       text-decoration: none;
     }
-    .info-value a:hover { text-decoration: underline; }
+    .links a:hover { text-decoration: underline; }
 
-    /* ─── PUBLICATIONS ──────────────────────────────── */
-    .pub-card {
-      background: var(--white);
-      border: 1px solid var(--gray-100);
-      border-left: 4px solid var(--blue);
-      border-radius: 0 8px 8px 0;
-      padding: 1.6rem 1.8rem;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-      transition: box-shadow 0.2s, transform 0.2s;
+    .sep {
+      color: #aaa;
+      margin: 0 8px;
     }
-    .pub-card:hover {
-      box-shadow: 0 6px 24px rgba(30,86,160,0.1);
-      transform: translateY(-2px);
+
+    /* ── SECTIONS ── */
+    h2 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #111;
+      margin: 40px 0 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub {
+      margin-bottom: 28px;
     }
 
     .pub-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
+      color: #111;
+      margin-bottom: 4px;
     }
 
+    .pub-title a {
+      color: #111;
+      text-decoration: none;
+    }
+    .pub-title a:hover { color: #1a56a0; text-decoration: underline; }
+
     .pub-authors {
-      font-size: 0.82rem;
-      color: var(--gray-500);
-      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 3px;
       line-height: 1.5;
     }
 
     .pub-authors .me {
-      color: var(--text);
       font-weight: 600;
+      color: #222;
     }
 
     .pub-venue {
-      display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: #444;
+      margin-bottom: 5px;
+    }
+
+    .pub-venue .accepted {
+      font-style: normal;
       font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--blue);
-      background: var(--blue-pale);
-      padding: 0.25em 0.7em;
-      border-radius: 3px;
+      color: #1a56a0;
     }
 
-    /* ─── EXPERIENCE ────────────────────────────────── */
-    .timeline { position: relative; }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 8px;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--blue), var(--blue-pale));
-      border-radius: 2px;
+    .pub-links {
+      font-size: 0.88rem;
     }
 
-    .tl-item {
-      padding-left: 2.4rem;
-      margin-bottom: 2.8rem;
-      position: relative;
+    .pub-links a {
+      color: #1a56a0;
+      text-decoration: none;
+      margin-right: 10px;
     }
+    .pub-links a:hover { text-decoration: underline; }
 
-    .tl-item::before {
-      content: '';
-      position: absolute;
-      left: -5px;
-      top: 8px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--blue);
-      border: 2px solid var(--white);
-      box-shadow: 0 0 0 2px var(--blue);
-    }
-
-    .tl-header {
+    /* ── EXPERIENCE ── */
+    .exp-item {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: baseline;
       gap: 1rem;
+      margin-bottom: 8px;
       flex-wrap: wrap;
-      margin-bottom: 0.3rem;
     }
 
-    .tl-org {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--navy);
+    .exp-left {
+      font-size: 0.95rem;
+      color: #333;
     }
 
-    .tl-date {
-      font-size: 0.78rem;
-      color: var(--gray-500);
-      font-weight: 500;
-      white-space: nowrap;
-      margin-top: 0.2rem;
-    }
-
-    .tl-role {
-      font-size: 0.88rem;
-      color: var(--blue);
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-
-    .tl-location {
-      font-size: 0.78rem;
-      color: var(--gray-500);
-      margin-bottom: 0.8rem;
-    }
-
-    .tl-projects { list-style: none; }
-
-    .tl-projects li {
-      position: relative;
-      padding-left: 1.2rem;
-      margin-bottom: 0.7rem;
-      font-size: 0.9rem;
-      color: var(--gray-700);
-      line-height: 1.65;
-    }
-
-    .tl-projects li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--blue-light);
-      font-size: 0.8rem;
-      top: 0.1rem;
-    }
-
-    .tl-projects strong {
-      color: var(--text);
+    .exp-left strong {
+      color: #111;
       font-weight: 600;
     }
 
-    /* ─── PROJECTS ──────────────────────────────────── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .project-card {
-      background: var(--white);
-      border: 1px solid var(--gray-100);
-      border-radius: 8px;
-      padding: 1.5rem;
-      transition: box-shadow 0.2s, transform 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--blue), var(--blue-light));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
-    }
-    .project-card:hover { box-shadow: 0 8px 28px rgba(30,86,160,0.1); transform: translateY(-2px); }
-    .project-card:hover::before { transform: scaleX(1); }
-
-    .project-date {
-      font-size: 0.72rem;
-      color: var(--gray-500);
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.6rem;
-      line-height: 1.35;
-    }
-
-    .project-desc {
+    .exp-date {
       font-size: 0.85rem;
-      color: var(--gray-500);
-      line-height: 1.6;
+      color: #888;
+      white-space: nowrap;
     }
 
-    /* ─── EDUCATION ─────────────────────────────────── */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .edu-card {
-      background: var(--white);
-      border: 1px solid var(--gray-100);
-      border-radius: 8px;
-      padding: 1.8rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-    }
-
-    .edu-degree {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.3rem;
-    }
-
-    .edu-school {
-      font-size: 0.92rem;
-      color: var(--blue);
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-
-    .edu-meta {
-      font-size: 0.8rem;
-      color: var(--gray-500);
-      margin-bottom: 0.8rem;
-    }
-
-    .edu-detail {
-      font-size: 0.83rem;
-      color: var(--gray-700);
-    }
-
-    /* ─── SKILLS ────────────────────────────────────── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skill-group {
-      background: var(--white);
-      border: 1px solid var(--gray-100);
-      border-radius: 8px;
-      padding: 1.5rem;
-    }
-
-    .skill-group-title {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--blue-pale);
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .skill-tag {
-      background: var(--gray-100);
-      color: var(--gray-700);
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 0.3em 0.8em;
-      border-radius: 4px;
-    }
-
-    /* ─── CONTACT ───────────────────────────────────── */
-    #contact {
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    #contact .section-title {
-      color: var(--white);
-      border-bottom-color: rgba(255,255,255,0.1);
-    }
-
-    #contact .section-title::after {
-      background: var(--blue-light);
-    }
-
-    #contact .section-label {
-      color: var(--blue-light);
-    }
-
-    .contact-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: flex-start;
-    }
-
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.7em 1.5em;
-      border-radius: 6px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--gray-300);
-      transition: all 0.2s;
-      background: rgba(255,255,255,0.04);
-    }
-
-    .contact-link:hover {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-
-    /* ─── FOOTER ────────────────────────────────────── */
-    footer {
-      background: #070f17;
-      padding: 1.5rem 8%;
-      text-align: center;
-      font-size: 0.78rem;
-      color: var(--gray-500);
-    }
-
-    /* ─── ANIMATIONS ────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ─── RESPONSIVE ────────────────────────────────── */
-    @media (max-width: 768px) {
-      #hero { flex-direction: column-reverse; text-align: center; padding: 100px 6% 50px; }
-      .hero-links { justify-content: center; }
-      .hero-photo { width: 180px; height: 230px; }
-      .about-grid { grid-template-columns: 1fr; }
-      nav { padding: 0 4%; }
-      .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 0.72rem; }
-      .tl-header { flex-direction: column; }
-    }
-
-    @media (max-width: 540px) {
-      .nav-links { display: none; }
-      section { padding: 60px 6%; }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 560px) {
+      .header { flex-direction: column; align-items: center; text-align: center; }
+      .links { justify-content: center; }
+      .exp-item { flex-direction: column; gap: 0; }
     }
   </style>
 </head>
 <body>
+<div class="container">
 
-<!-- ── NAV ─────────────────────────────────────────── -->
-<nav>
-  <a class="nav-brand" href="#hero">Mobina Pournemat</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#publications">Research</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- ── HERO ────────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-text">
-    <span class="hero-tag">PhD Researcher · CS · UMD</span>
-    <h1 class="hero-name">Mobina<br>Pournemat</h1>
-    <p class="hero-subtitle">
-      Ph.D. Student in Computer Science at<br>
-      <strong>University of Maryland, College Park</strong>
-    </p>
-    <p class="hero-interests">LLMs · Efficient Inference · Reasoning Faithfulness</p>
-    <div class="hero-links">
-      <a class="btn btn-primary" href="mailto:mpournem@umd.edu">
-        ✉ Email Me
-      </a>
-      <a class="btn btn-outline" href="https://scholar.google.com" target="_blank">
-        Google Scholar
-      </a>
-      <a class="btn btn-outline" href="https://linkedin.com" target="_blank">
-        LinkedIn
-      </a>
-      <a class="btn btn-outline" href="https://github.com" target="_blank">
-        GitHub
-      </a>
-    </div>
-  </div>
-  <div class="hero-photo-wrap">
-    <img class="hero-photo" src="profile.jpg" alt="Mobina Pournemat" />
-  </div>
-</section>
-
-<!-- ── ABOUT ────────────────────────────────────────── -->
-<section id="about">
-  <div class="section-label">Introduction</div>
-  <h2 class="section-title">About Me</h2>
-  <div class="about-grid">
-    <div class="about-text">
+  <!-- HEADER -->
+  <div class="header">
+    <img class="photo" src="profile.jpg" alt="Mobina Pournemat" />
+    <div class="header-text">
+      <h1>Mobina Pournemat</h1>
       <p>
-        I am a Ph.D. student in Computer Science at the University of Maryland, College Park,
-        advised by <a href="#" style="color:var(--blue);text-decoration:none;font-weight:500">Prof. Soheil Feizi</a>.
-        My research is focused on understanding and improving <strong>Large Language Models</strong>,
-        with particular interest in their reasoning capabilities, efficiency, and faithfulness.
+        I am a second-year Computer Science Ph.D. student at the University of Maryland, College Park,
+        advised by <a href="https://www.cs.umd.edu/~sfeizi/" style="color:#1a56a0;text-decoration:none;">Prof. Soheil Feizi</a>.
+        My research focuses on reasoning in Large Language Models, with a particular interest in
+        <strong>efficient reasoning</strong> — making LLMs reason more reliably and at lower computational cost.
       </p>
       <p>
-        Before joining UMD, I completed my B.Sc. in Computer Engineering at <strong>Sharif University of Technology</strong>
-        and spent eight months as a Machine Learning intern at the <strong>Institute of Science and Technology Austria (ISTA)</strong>,
-        where I worked on 3D semantic segmentation of microscopy images.
+        Before joining UMD, I earned my B.Sc. in Computer Engineering from
+        <strong>Sharif University of Technology</strong>. During my undergraduate years and
+        afterwards, I gained research and industry experience in NLP, computer vision, and data science,
+        including a machine learning internship at the <strong>Institute of Science and Technology Austria (ISTA)</strong>.
       </p>
-      <p>
-        I am passionate about making AI systems that reason more reliably and efficiently — building
-        benchmarks to probe their weaknesses, and developing methods to accelerate their inference.
-      </p>
-      <div class="interest-chips">
-        <span class="chip">Large Language Models</span>
-        <span class="chip">Efficient Inference</span>
-        <span class="chip">Reasoning Faithfulness</span>
-        <span class="chip">Speculative Decoding</span>
-        <span class="chip">Probabilistic Reasoning</span>
-        <span class="chip">NLP</span>
-      </div>
-    </div>
-    <div class="about-info-box">
-      <div class="info-item">
-        <span class="info-label">Position</span>
-        <span class="info-value">Ph.D. Student, CS</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Institution</span>
-        <span class="info-value">University of Maryland, College Park</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Advisor</span>
-        <span class="info-value">Prof. Soheil Feizi</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Started</span>
-        <span class="info-value">August 2024</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Email</span>
-        <span class="info-value"><a href="mailto:mpournem@umd.edu">mpournem@umd.edu</a></span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Languages</span>
-        <span class="info-value">Persian · English · Spanish · Turkish</span>
+      <div class="links">
+        <a href="mailto:mpournem@umd.edu">Email</a>
+        <span class="sep">/</span>
+        <a href="https://scholar.google.com/citations?user=x3SgPd8AAAAJ&hl" target="_blank">Google Scholar</a>
+        <span class="sep">/</span>
+        <a href="https://www.linkedin.com/in/mobina-pournemat-3a38b0211" target="_blank">LinkedIn</a>
+        <span class="sep">/</span>
+        <a href="https://github.com/Mobinapournemat" target="_blank">GitHub</a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ── PUBLICATIONS ──────────────────────────────────── -->
-<section id="publications">
-  <div class="section-label">Research Output</div>
-  <h2 class="section-title">Publications</h2>
+  <!-- PUBLICATIONS -->
+  <h2>Publications</h2>
 
-  <div class="pub-card">
+  <div class="pub">
     <div class="pub-title">Reasoning Under Uncertainty: Exploring Probabilistic Reasoning Capabilities of LLMs</div>
     <div class="pub-authors">
-      <span class="me">M Pournemat</span>, K Rezaei, G Sriramanan, A Zarei, J Fu, Y Wang, H Eghbalzadeh, S Feizi
+      <span class="me">Mobina Pournemat</span>, Keivan Rezaei, Gowthami Sriramanan, Arman Zarei, Jiacheng Fu, Yizhou Wang, Hamid Eghbalzadeh,
+      <a href="https://www.cs.umd.edu/~sfeizi/" style="color:#555;text-decoration:none;">Soheil Feizi</a>
     </div>
-    <span class="pub-venue">Under Review · ACL 2026</span>
+    <div class="pub-venue">Under Review at ACL 2026</div>
   </div>
 
-  <div class="pub-card">
-    <div class="pub-title">SliderEdit: Continuous Image Editing with Fine-Grained Instruction Control</div>
+  <div class="pub">
+    <div class="pub-title">
+      <a href="https://armanzarei.github.io/SliderEdit/">SliderEdit: Continuous Image Editing with Fine-Grained Instruction Control</a>
+    </div>
     <div class="pub-authors">
-      A Zarei, S Basu, <span class="me">M Pournemat</span>, S Nag, R Rossi, S Feizi
+      Arman Zarei, Samyadeep Basu, <span class="me">Mobina Pournemat</span>, Sayan Nag, Ryan Rossi,
+      <a href="https://www.cs.umd.edu/~sfeizi/" style="color:#555;text-decoration:none;">Soheil Feizi</a>
     </div>
-    <span class="pub-venue">Under Review · CVPR 2026</span>
+    <div class="pub-venue"><span class="accepted">CVPR 2026 (Oral)</span></div>
+    <div class="pub-links">
+      <a href="https://armanzarei.github.io/SliderEdit/">Project</a>
+      <a href="https://arxiv.org/abs/2511.09715">Paper</a>
+      <a href="https://github.com/ArmanZarei/SliderEdit">Code</a>
+    </div>
   </div>
-</section>
 
-<!-- ── EXPERIENCE ────────────────────────────────────── -->
-<section id="experience">
-  <div class="section-label">Work &amp; Research</div>
-  <h2 class="section-title">Experience</h2>
-  <div class="timeline">
+  <!-- EXPERIENCE -->
+  <h2>Experience</h2>
 
-    <div class="tl-item">
-      <div class="tl-header">
-        <span class="tl-org">University of Maryland, College Park</span>
-        <span class="tl-date">Aug 2024 – Present</span>
-      </div>
-      <div class="tl-role">Research Assistant · Advisor: Prof. Soheil Feizi</div>
-      <div class="tl-location">Maryland, USA</div>
-      <ul class="tl-projects">
-        <li><strong>Probabilistic Reasoning in LLMs:</strong> Developed a comprehensive benchmark to evaluate LLMs on probabilistic tasks, uncovering their strengths and weaknesses.</li>
-        <li><strong>Efficient Speculative Reasoning:</strong> Adapting speculative decoding techniques to reasoning settings to accelerate LLM inference on challenging problems.</li>
-      </ul>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-header">
-        <span class="tl-org">Institute of Science and Technology Austria (ISTA)</span>
-        <span class="tl-date">Nov 2023 – Jul 2024</span>
-      </div>
-      <div class="tl-role">Machine Learning Intern · Supervisor: Prof. Johann Danzl</div>
-      <div class="tl-location">Klosterneuburg, Austria</div>
-      <ul class="tl-projects">
-        <li><strong>3D Semantic Segmentation:</strong> Developed an efficient automated pipeline for semantic segmentation of brain microscopy images using Segment Anything.</li>
-      </ul>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-header">
-        <span class="tl-org">Sharif University of Technology</span>
-        <span class="tl-date">Jul 2022 – Oct 2023</span>
-      </div>
-      <div class="tl-role">NLP Research Assistant · Advisor: Dr. Ehsaneddin Asgari</div>
-      <div class="tl-location">Tehran, Iran</div>
-      <ul class="tl-projects">
-        <li><strong>Persian Error Correction:</strong> Developed an auto-correction tool for Persian text combining BERT-based language modeling with rule-based modules.</li>
-      </ul>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-header">
-        <span class="tl-org">Behin Bazaar Marketing Agency</span>
-        <span class="tl-date">Apr 2023 – Oct 2023</span>
-      </div>
-      <div class="tl-role">Data Analyst, Business Intelligence</div>
-      <div class="tl-location">Tehran, Iran</div>
-      <ul class="tl-projects">
-        <li>Data analysis, database design, preprocessing, visualization, and reporting.</li>
-      </ul>
-    </div>
-
+  <div class="exp-item">
+    <span class="exp-left"><strong>Machine Learning Intern</strong> &mdash; Institute of Science and Technology Austria (ISTA)</span>
+    <span class="exp-date">Nov 2023 – Jul 2024</span>
   </div>
-</section>
-
-<!-- ── PROJECTS ──────────────────────────────────────── -->
-<section id="projects">
-  <div class="section-label">Selected Work</div>
-  <h2 class="section-title">Projects</h2>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <div class="project-date">Dec 2025</div>
-      <div class="project-title">Efficient LLM Reasoning with Speculative Chain-of-Thought</div>
-      <div class="project-desc">Accelerating LLM reasoning by adapting speculative decoding's draft–target pipeline while preserving accuracy.</div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-date">Nov 2025</div>
-      <div class="project-title">Quantifying Attributional Bias in LLM Toxicity Detection</div>
-      <div class="project-desc">Measuring how toxicity scores for identical comments shift when attributed to different author identities.</div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-date">Oct 2025</div>
-      <div class="project-title">Benchmarking Multi-Stage Vulnerability Reasoning in LLMs</div>
-      <div class="project-desc">Evaluating how explicit reasoning and post-verification affect LLM performance in vulnerability detection tasks.</div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-date">Jun 2024</div>
-      <div class="project-title">3D Semantic Segmentation of Microscopy Images</div>
-      <div class="project-desc">Efficient automated pipeline for semantic segmentation of brain microscopy images using Segment Anything.</div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-date">May 2022</div>
-      <div class="project-title">Explainable Detection of Online Sexism</div>
-      <div class="project-desc">SemEval-2023, Task 10 — sentiment analysis and explainable classification of sexist content online.</div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-date">Feb 2021</div>
-      <div class="project-title">Persian Syntactic & Semantic Error Correction</div>
-      <div class="project-desc">Automated tool for identifying and correcting misspellings in Persian text using BERT and complementary modules.</div>
-    </div>
-
+  <div class="exp-item">
+    <span class="exp-left"><strong>Data Analyst, Business Intelligence</strong> &mdash; Behin Bazaar Marketing Agency</span>
+    <span class="exp-date">Apr 2023 – Oct 2023</span>
   </div>
-</section>
-
-<!-- ── EDUCATION ─────────────────────────────────────── -->
-<section id="education">
-  <div class="section-label">Academic Background</div>
-  <h2 class="section-title">Education</h2>
-  <div class="edu-grid">
-
-    <div class="edu-card">
-      <div class="edu-degree">Ph.D. in Computer Science</div>
-      <div class="edu-school">University of Maryland, College Park</div>
-      <div class="edu-meta">Maryland, USA · Aug 2024 – Present · GPA: 4.0/4.0</div>
-      <div class="edu-detail">Advised by Prof. Soheil Feizi. Focus on LLMs, efficient inference, and reasoning.</div>
-    </div>
-
-    <div class="edu-card">
-      <div class="edu-degree">B.Sc. in Computer Engineering</div>
-      <div class="edu-school">Sharif University of Technology</div>
-      <div class="edu-meta">Tehran, Iran · Sep 2018 – Feb 2023</div>
-      <div class="edu-detail">Coursework in NLP, AI, Data Structures & Algorithms, Probability & Statistics, and more.</div>
-    </div>
-
+  <div class="exp-item">
+    <span class="exp-left"><strong>Machine Learning Intern</strong> &mdash; AIMedic</span>
+    <span class="exp-date">Jul 2021 – Sep 2021</span>
   </div>
-</section>
 
-<!-- ── SKILLS ─────────────────────────────────────────── -->
-<section id="skills">
-  <div class="section-label">Technical Expertise</div>
-  <h2 class="section-title">Skills</h2>
-  <div class="skills-grid">
-
-    <div class="skill-group">
-      <div class="skill-group-title">Programming</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Java</span>
-        <span class="skill-tag">C</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">PHP</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-title">ML / AI Libraries</div>
-      <div class="skill-tags">
-        <span class="skill-tag">PyTorch</span>
-        <span class="skill-tag">TensorFlow</span>
-        <span class="skill-tag">Transformers</span>
-        <span class="skill-tag">NumPy</span>
-        <span class="skill-tag">Pandas</span>
-        <span class="skill-tag">scikit-learn</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-title">Tools &amp; Infrastructure</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Git</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">Linux</span>
-        <span class="skill-tag">Power BI</span>
-        <span class="skill-tag">MySQL</span>
-        <span class="skill-tag">PostgreSQL</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-title">Web &amp; Data</div>
-      <div class="skill-tags">
-        <span class="skill-tag">HTML/CSS</span>
-        <span class="skill-tag">Bootstrap</span>
-        <span class="skill-tag">jQuery</span>
-        <span class="skill-tag">SQL Server</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── CONTACT ───────────────────────────────────────── -->
-<section id="contact">
-  <div class="section-label">Get In Touch</div>
-  <h2 class="section-title">Contact</h2>
-  <p style="color:var(--gray-300);margin-bottom:2rem;max-width:520px;font-size:0.95rem;">
-    I'm always happy to chat about research, collaborations, or just ideas.
-    Feel free to reach out through any of the channels below.
-  </p>
-  <div class="contact-grid">
-    <a class="contact-link" href="mailto:mpournem@umd.edu">✉ mpournem@umd.edu</a>
-    <a class="contact-link" href="https://linkedin.com" target="_blank">in LinkedIn</a>
-    <a class="contact-link" href="https://scholar.google.com" target="_blank">&#x1F393; Google Scholar</a>
-    <a class="contact-link" href="https://github.com" target="_blank">⌥ GitHub</a>
-  </div>
-</section>
-
-<!-- ── FOOTER ────────────────────────────────────────── -->
-<footer>
-  <p>© 2025 Mobina Pournemat &nbsp;·&nbsp; University of Maryland, College Park</p>
-</footer>
-
+</div>
 </body>
 </html>
