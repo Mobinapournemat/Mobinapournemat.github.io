@@ -24,34 +24,41 @@
     }
 
     /* ── HEADER ── */
-    .header {
-      overflow: hidden;
+    .name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 18px;
+    }
+
+    /* name full-width, then intro row below */
+    .intro {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
       margin-bottom: 36px;
     }
 
+    .intro-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .intro-text p {
+      color: #333;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
     .photo {
-      float: right;
-      margin: 0 0 16px 32px;
-      width: 155px;
-      height: 195px;
+      flex-shrink: 0;
+      width: 195px;
+      height: 255px;
       object-fit: cover;
       object-position: center top;
       border-radius: 6px;
       display: block;
-    }
-
-    .header-text h1 {
-      font-family: 'Source Serif 4', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 14px;
-      color: #111;
-    }
-
-    .header-text p {
-      color: #333;
-      margin-bottom: 12px;
-      font-size: 1rem;
     }
 
     .links {
@@ -166,9 +173,10 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 560px) {
-      .photo { float: none; display: block; margin: 0 auto 20px; width: 140px; height: 175px; }
+      .intro { flex-direction: column-reverse; align-items: center; }
+      .photo { width: 150px; height: 190px; }
+      .intro-text { text-align: center; }
       .links { justify-content: center; }
-      .header-text { text-align: center; }
       .exp-item { flex-direction: column; gap: 0; }
     }
   </style>
@@ -176,11 +184,11 @@
 <body>
 <div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <img class="photo" src="profile.jpeg" alt="Mobina Pournemat" />
-    <div class="header-text">
-      <h1>Mobina Pournemat</h1>
+  <!-- HEADER: name full-width, then text + photo side by side -->
+  <h1 class="name">Mobina Pournemat</h1>
+
+  <div class="intro">
+    <div class="intro-text">
       <p>
         I am a second-year Computer Science Ph.D. student at the University of Maryland, College Park,
         advised by <a href="https://www.cs.umd.edu/~sfeizi/" style="color:#1a56a0;text-decoration:none;">Prof. Soheil Feizi</a>.
@@ -202,6 +210,7 @@
         <a href="https://github.com/Mobinapournemat" target="_blank">GitHub</a>
       </div>
     </div>
+    <img class="photo" src="profile.jpeg" alt="Mobina Pournemat" />
   </div>
 
   <!-- PUBLICATIONS -->
