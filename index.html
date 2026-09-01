@@ -4,258 +4,401 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mobina Pournemat</title>
+  <meta name="description" content="Mobina Pournemat — Computer Science Ph.D. student at the University of Maryland, researching reasoning and efficient reasoning in large language models." />
+  <meta name="color-scheme" content="light" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --bg:            #ffffff;
+      --bg-subtle:     #f7f7f5;
+      --text:          #23262b;
+      --text-strong:   #101317;
+      --text-muted:    #5d636d;
+      --text-faint:    #8a919c;
+      --rule:          #e5e5e1;
+      --rule-soft:     #eeeeea;
+      --accent:        #1a4f8a;
+      --accent-hover:  #123a67;
+      --accent-soft:   #eef3f9;
+      --focus:         #1a4f8a;
+      --shadow:        0 1px 2px rgba(16, 19, 23, .05), 0 8px 24px -12px rgba(16, 19, 23, .18);
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html { -webkit-text-size-adjust: 100%; }
+
     body {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 16px;
-      line-height: 1.75;
-      color: #222;
-      background: #fff;
-      padding: 60px 20px 80px;
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      padding: clamp(48px, 8vw, 88px) 22px 96px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .container {
-      max-width: 780px;
+      max-width: 760px;
       margin: 0 auto;
     }
 
-    /* ── HEADER ── */
-    .name {
-      font-family: 'Source Serif 4', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: #111;
-      margin-bottom: 18px;
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      text-underline-offset: 2px;
+      transition: color .15s ease;
+    }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    a:focus-visible,
+    .photo:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 2px;
     }
 
-    /* name full-width, then intro row below */
+    /* ── HEADER ── */
+    header { margin-bottom: 44px; }
+
+    .name {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: clamp(2.1rem, 5.5vw, 2.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--text-strong);
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 26px;
+    }
+
     .intro {
       display: flex;
-      gap: 32px;
+      gap: 38px;
       align-items: flex-start;
-      margin-bottom: 36px;
     }
 
-    .intro-text {
-      flex: 1;
-      min-width: 0;
-    }
+    .intro-text { flex: 1; min-width: 0; }
 
     .intro-text p {
-      color: #333;
-      margin-bottom: 12px;
-      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .intro-text p:last-of-type { margin-bottom: 0; }
+
+    .intro-text strong {
+      color: var(--text-strong);
+      font-weight: 600;
     }
 
     .photo {
       flex-shrink: 0;
-      width: 195px;
-      height: 255px;
+      width: 190px;
+      height: 245px;
       object-fit: cover;
       object-position: center top;
-      border-radius: 6px;
+      border-radius: 10px;
       display: block;
+      box-shadow: var(--shadow);
     }
 
+    /* ── LINK ROW ── */
     .links {
-      margin-top: 14px;
-      font-size: 0.95rem;
+      margin-top: 22px;
       display: flex;
       flex-wrap: wrap;
-      gap: 4px 0;
+      gap: 8px;
     }
 
     .links a {
-      color: #1a56a0;
-      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: .01em;
+      color: var(--text-muted);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      transition: color .15s ease, border-color .15s ease, background-color .15s ease;
     }
-    .links a:hover { text-decoration: underline; }
 
-    .sep {
-      color: #aaa;
-      margin: 0 8px;
+    .links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      text-decoration: none;
     }
 
     /* ── SECTIONS ── */
+    section { margin-top: 52px; }
+
     h2 {
-      font-family: 'Source Serif 4', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #111;
-      margin: 40px 0 16px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #e0e0e0;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      padding-bottom: 10px;
+      margin-bottom: 26px;
+      border-bottom: 1px solid var(--rule);
     }
 
     /* ── PUBLICATIONS ── */
     .pub {
-      margin-bottom: 28px;
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 30px;
     }
+
+    .pub::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      border-radius: 2px;
+      background: var(--rule);
+      transition: background-color .18s ease;
+    }
+
+    .pub:hover::before { background: var(--accent); }
+
+    .pub:last-child { margin-bottom: 0; }
 
     .pub-title {
-      font-size: 1rem;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 1.1rem;
       font-weight: 600;
-      color: #111;
-      margin-bottom: 4px;
+      line-height: 1.4;
+      color: var(--text-strong);
+      margin-bottom: 6px;
     }
 
-    .pub-title a {
-      color: #111;
-      text-decoration: none;
-    }
-    .pub-title a:hover { color: #1a56a0; text-decoration: underline; }
+    .pub-title a { color: inherit; }
+    .pub-title a:hover { color: var(--accent); text-decoration: none; }
 
     .pub-authors {
-      font-size: 0.9rem;
-      color: #555;
-      margin-bottom: 3px;
-      line-height: 1.5;
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
     }
+
+    .pub-authors a { color: inherit; }
+    .pub-authors a:hover { color: var(--accent); }
 
     .pub-authors .me {
       font-weight: 600;
-      color: #222;
+      color: var(--text-strong);
     }
 
-    .pub-venue {
+    .pub-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 12px;
       font-size: 0.88rem;
-      font-style: italic;
-      color: #444;
-      margin-bottom: 5px;
     }
 
-    .pub-venue .accepted {
-      font-style: normal;
+    .venue {
+      display: inline-block;
       font-weight: 600;
-      color: #1a56a0;
+      letter-spacing: .01em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 4px;
+      padding: 1px 9px;
+      white-space: nowrap;
     }
 
     .pub-links {
-      font-size: 0.88rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .pub-links a {
-      color: #1a56a0;
-      text-decoration: none;
-      margin-right: 10px;
-    }
-    .pub-links a:hover { text-decoration: underline; }
+    .pub-links a { color: var(--text-muted); font-weight: 500; }
+    .pub-links a:hover { color: var(--accent); }
 
     /* ── EXPERIENCE ── */
     .exp-item {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--rule-soft);
     }
 
+    .exp-item:last-child { border-bottom: none; }
+
     .exp-left {
-      font-size: 0.95rem;
-      color: #333;
+      font-size: 0.97rem;
+      color: var(--text-muted);
     }
 
     .exp-left strong {
-      color: #111;
+      color: var(--text-strong);
       font-weight: 600;
     }
 
+    .exp-left a { color: inherit; }
+    .exp-left a:hover { color: var(--accent); }
+
     .exp-date {
       font-size: 0.85rem;
-      color: #888;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-faint);
       white-space: nowrap;
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 560px) {
-      .intro { flex-direction: column-reverse; align-items: center; }
-      .photo { width: 150px; height: 190px; }
-      .intro-text { text-align: center; }
-      .links { justify-content: center; }
-      .exp-item { flex-direction: column; gap: 0; }
+    @media (max-width: 620px) {
+      body { font-size: 16px; }
+
+      .intro {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 26px;
+      }
+
+      .photo { width: 150px; height: 194px; }
+
+      .exp-item {
+        flex-direction: column;
+        gap: 2px;
+        align-items: flex-start;
+      }
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { padding: 0; font-size: 11pt; color: #000; background: #fff; }
+      .photo { box-shadow: none; }
+      .links, .pub-links { display: none; }
+      a { color: #000; }
+      .pub { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- HEADER: name full-width, then text + photo side by side -->
-  <h1 class="name">Mobina Pournemat</h1>
+  <header>
+    <h1 class="name">Mobina Pournemat</h1>
+    <div class="tagline">Ph.D. Student &middot; University of Maryland</div>
 
-  <div class="intro">
-    <div class="intro-text">
-      <p>
-        I am a second-year Computer Science Ph.D. student at the <strong>University of Maryland</strong>, College Park,
-        advised by <a href="https://www.cs.umd.edu/~sfeizi/" style="color:#1a56a0;text-decoration:none;">Prof. Soheil Feizi</a>.
-        My research focuses on reasoning in Large Language Models, with a particular interest in
-        <strong>efficient reasoning</strong> — making LLMs reason more reliably and at lower computational cost.
-      </p>
-      <p>
-        Before joining UMD, I earned my B.Sc. in Computer Engineering from
-        <strong>Sharif University of Technology</strong>. During my undergraduate years and
-        afterwards, I gained research and industry experience in NLP, computer vision, and data science.
-      </p>
-      <div class="links">
-        <a href="mailto:mpournem@umd.edu">Email</a>
-        <span class="sep">/</span>
-        <a href="https://scholar.google.com/citations?user=x3SgPd8AAAAJ&hl" target="_blank">Google Scholar</a>
-        <span class="sep">/</span>
-        <a href="https://www.linkedin.com/in/mobina-pournemat-3a38b0211" target="_blank">LinkedIn</a>
-        <span class="sep">/</span>
-        <a href="https://github.com/Mobinapournemat" target="_blank">GitHub</a>
-        <span class="sep">/</span>
-        <a href="CV.pdf" target="_blank">CV</a>
+    <div class="intro">
+      <div class="intro-text">
+        <p>
+          I am a third-year Computer Science Ph.D. student at the <strong>University of Maryland</strong>, College Park,
+          advised by <a href="https://www.cs.umd.edu/~sfeizi/" target="_blank" rel="noopener">Prof. Soheil Feizi</a>.
+          My research focuses on reasoning in Large Language Models, with a particular interest in
+          <strong>efficient reasoning</strong> &mdash; making LLMs reason more reliably and at lower computational cost.
+        </p>
+        <p>
+          Before joining UMD, I earned my B.Sc. in Computer Engineering from
+          <strong>Sharif University of Technology</strong>. During my undergraduate years and
+          afterwards, I gained research and industry experience in NLP, computer vision, and data science.
+        </p>
+        <div class="links">
+          <a href="mailto:mpournem@umd.edu">Email</a>
+          <a href="https://scholar.google.com/citations?user=x3SgPd8AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/mobina-pournemat-3a38b0211" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/Mobinapournemat" target="_blank" rel="noopener">GitHub</a>
+          <a href="CV.pdf" target="_blank" rel="noopener">CV</a>
+        </div>
       </div>
+      <img class="photo" src="profilee.jpg" alt="Mobina Pournemat" />
     </div>
-    <img class="photo" src="profilee.jpg" alt="Mobina Pournemat" />
-  </div>
+  </header>
 
   <!-- PUBLICATIONS -->
-  <h2>Publications</h2>
+  <section>
+    <h2>Publications</h2>
 
-  <div class="pub">
-    <div class="pub-title"><a href="https://arxiv.org/abs/2509.10739">Reasoning Under Uncertainty: Exploring Probabilistic Reasoning Capabilities of LLMs</a></div>
-    <div class="pub-authors">
-      <span class="me">Mobina Pournemat</span>, Keivan Rezaei, Gaurang Sriramanan, Arman Zarei, Hamid Eghbalzadeh, Yang Wang, Jiaxiang Fu, Fuchun Peng, Zhigang Wang, Xue Feng, Nima Noorshams, Soheil Feizi
+    <div class="pub">
+      <div class="pub-title">
+        <a href="https://arxiv.org/abs/2509.10739" target="_blank" rel="noopener">Reasoning Under Uncertainty: Exploring Probabilistic Reasoning Capabilities of LLMs</a>
+      </div>
+      <div class="pub-authors">
+        <span class="me">Mobina Pournemat</span>, Keivan Rezaei, Gaurang Sriramanan, Arman Zarei, Hamid Eghbalzadeh,
+        Yang Wang, Jiaxiang Fu, Fuchun Peng, Zhigang Wang, Xue Feng, Nima Noorshams,
+        <a href="https://www.cs.umd.edu/~sfeizi/" target="_blank" rel="noopener">Soheil Feizi</a>
+      </div>
+      <div class="pub-meta">
+        <span class="venue">EMNLP 2026 (Main)</span>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2509.10739" target="_blank" rel="noopener">arXiv</a>
+        </div>
+      </div>
     </div>
-    <div class="pub-venue"><span class="accepted">EMNLP 2026 (Main)</span></div>
-  </div>
 
-  <div class="pub">
-    <div class="pub-title">
-      <a href="https://arxiv.org/abs/2511.09715">SliderEdit: Continuous Image Editing with Fine-Grained Instruction Control</a>
+    <div class="pub">
+      <div class="pub-title">
+        <a href="https://arxiv.org/abs/2511.09715" target="_blank" rel="noopener">SliderEdit: Continuous Image Editing with Fine-Grained Instruction Control</a>
+      </div>
+      <div class="pub-authors">
+        Arman Zarei, Samyadeep Basu, <span class="me">Mobina Pournemat</span>, Sayan Nag, Ryan Rossi,
+        <a href="https://www.cs.umd.edu/~sfeizi/" target="_blank" rel="noopener">Soheil Feizi</a>
+      </div>
+      <div class="pub-meta">
+        <span class="venue">CVPR 2026 (Oral)</span>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2511.09715" target="_blank" rel="noopener">arXiv</a>
+          <a href="https://armanzarei.github.io/SliderEdit/" target="_blank" rel="noopener">Project</a>
+          <a href="https://github.com/ArmanZarei/SliderEdit" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
     </div>
-    <div class="pub-authors">
-      Arman Zarei, Samyadeep Basu, <span class="me">Mobina Pournemat</span>, Sayan Nag, Ryan Rossi,
-      <a href="https://www.cs.umd.edu/~sfeizi/" style="color:#555;text-decoration:none;">Soheil Feizi</a>
+
+    <div class="pub">
+      <div class="pub-title">
+        <a href="https://arxiv.org/abs/2607.22554" target="_blank" rel="noopener">Same Question, Different Answers: Evaluating LLM Reliability Beyond Accuracy</a>
+      </div>
+      <div class="pub-authors">
+        Kazem Faghih, Yize Cheng, Shoumik Saha, <span class="me">Mobina Pournemat</span>, Armin Gerami,
+        <a href="https://www.cs.umd.edu/~sfeizi/" target="_blank" rel="noopener">Soheil Feizi</a>
+      </div>
+      <div class="pub-meta">
+        <span class="venue">Under review</span>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2607.22554" target="_blank" rel="noopener">arXiv</a>
+        </div>
+      </div>
     </div>
-    <div class="pub-venue"><span class="accepted">CVPR 2026 (Oral)</span></div>
-    <div class="pub-links">
-      <a href="https://armanzarei.github.io/SliderEdit/">Project</a>
-      <a href="https://github.com/ArmanZarei/SliderEdit">Code</a>
-    </div>
-  </div>
+  </section>
 
   <!-- EXPERIENCE -->
-  <h2>Experience</h2>
+  <section>
+    <h2>Experience</h2>
 
-  <div class="exp-item">
-    <span class="exp-left"><strong>Machine Learning Intern</strong> &mdash; <a href="https://ista.ac.at/en/home/" target="_blank" style="color:#333;text-decoration:none;">Institute of Science and Technology Austria (ISTA)</a></span>
-    <span class="exp-date">Nov 2023 – Jul 2024</span>
-  </div>
-  <div class="exp-item">
-    <span class="exp-left"><strong>Data Analyst, Business Intelligence</strong> &mdash; Behin Bazaar Marketing Agency</span>
-    <span class="exp-date">Apr 2023 – Oct 2023</span>
-  </div>
-  <div class="exp-item">
-    <span class="exp-left"><strong>Machine Learning Intern</strong> &mdash; AIMedic</span>
-    <span class="exp-date">Jul 2021 – Sep 2021</span>
-  </div>
+    <div class="exp-item">
+      <span class="exp-left"><strong>Machine Learning Intern</strong> &mdash; <a href="https://ista.ac.at/en/home/" target="_blank" rel="noopener">Institute of Science and Technology Austria (ISTA)</a></span>
+      <span class="exp-date">Nov 2023 &ndash; Jul 2024</span>
+    </div>
+    <div class="exp-item">
+      <span class="exp-left"><strong>Data Analyst, Business Intelligence</strong> &mdash; Behin Bazaar Marketing Agency</span>
+      <span class="exp-date">Apr 2023 &ndash; Oct 2023</span>
+    </div>
+    <div class="exp-item">
+      <span class="exp-left"><strong>Machine Learning Intern</strong> &mdash; AIMedic</span>
+      <span class="exp-date">Jul 2021 &ndash; Sep 2021</span>
+    </div>
+  </section>
 
 </div>
 </body>
