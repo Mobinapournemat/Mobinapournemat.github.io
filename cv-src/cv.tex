@@ -1,0 +1,214 @@
+%-------------------------------------------------------------------------------
+% Mobina Pournemat --- Curriculum Vitae
+% Compile with: pdflatex cv.tex
+%-------------------------------------------------------------------------------
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[left=0.72in,right=0.72in,top=0.62in,bottom=0.62in]{geometry}
+\usepackage{latexsym}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\urlstyle{same}
+
+\hypersetup{
+  pdftitle={Mobina Pournemat --- Curriculum Vitae},
+  pdfauthor={Mobina Pournemat},
+  pdfsubject={Curriculum Vitae},
+  pdfkeywords={large language models, efficient inference, reasoning, LLM evaluation, machine learning}
+}
+
+% Section headings: small caps with a full-width rule underneath
+\titleformat{\section}
+  {\scshape\large}{}{0em}{}[\vspace{3pt}\titlerule]
+\titlespacing*{\section}{0pt}{10pt plus 2pt minus 2pt}{5pt}
+
+%------------------------- Entry macros ---------------------------------------
+% Organisation / location on line one, role / dates on line two.
+\newcommand{\cvHeading}[4]{%
+  \item
+  \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & #2 \\[1pt]
+    \textit{\small #3} & \textit{\small #4}
+  \end{tabular*}%
+}
+
+\newcommand{\cvDetail}[2]{\item \textbf{#1}:\\ #2}
+\newcommand{\cvProject}[3]{\item \textbf{#1} (#2):\\ #3}
+
+% Outer list of positions
+\newenvironment{cvlist}
+  {\begin{itemize}[leftmargin=0.16in,label=\textbullet,itemsep=5pt,parsep=0pt,topsep=4pt,partopsep=0pt]}
+  {\end{itemize}}
+
+% Nested list of contributions under a position
+\newenvironment{cvsublist}
+  {\begin{itemize}[leftmargin=0.2in,label=$\circ$,itemsep=2pt,parsep=0pt,topsep=4pt,partopsep=0pt]\small}
+  {\end{itemize}}
+
+% Flat list (projects, coursework, skills, ...)
+\newenvironment{cvflat}
+  {\begin{itemize}[leftmargin=0.16in,label=\textbullet,itemsep=2pt,parsep=0pt,topsep=4pt,partopsep=0pt]\small}
+  {\end{itemize}}
+
+\begin{document}
+
+%------------------------------- HEADING --------------------------------------
+{\LARGE\textbf{Mobina Pournemat}}\\[3pt]
+{\small
+\faEnvelope\ \href{mailto:mpournem@umd.edu}{mpournem@umd.edu} $|$
+\faGlobe\ \href{https://mobinapournemat.github.io/}{mobinapournemat.github.io} $|$
+\faLinkedin\ \href{https://www.linkedin.com/in/mobina-pournemat-3a38b0211}{LinkedIn} $|$
+\faGraduationCap\ \href{https://scholar.google.com/citations?user=x3SgPd8AAAAJ&hl=en}{Google Scholar} $|$
+\faGithub\ \href{https://github.com/Mobinapournemat}{GitHub}\\[1pt]
+\faMapMarker*\ Mountain View, California
+}
+
+%------------------------------ EDUCATION -------------------------------------
+\section{Education}
+\begin{cvlist}
+  \cvHeading
+    {University of Maryland, College Park}{Maryland, USA}
+    {Ph.D. in Computer Science (third year); Advised by Prof. \textbf{Soheil Feizi}; GPA: 4/4}{Aug. 2024 - Present}
+  \cvHeading
+    {Sharif University of Technology}{Tehran, Iran}
+    {B.Sc. in Computer Engineering}{Sep. 2018 - Feb. 2023}
+\end{cvlist}
+
+%-------------------------- RESEARCH INTERESTS --------------------------------
+\section{Research Interests}
+\small Large Language Models, Efficient Inference and Reasoning, Reasoning Faithfulness, Evaluation of LLMs
+
+%-------------------------- RESEARCH EXPERIENCE -------------------------------
+\section{Research Experience}
+\begin{cvlist}
+  \cvHeading
+    {University of Maryland, College Park}{Maryland, USA}
+    {Research Assistant; Advisor: Prof. Soheil Feizi}{Aug. 2024 - Present}
+  \begin{cvsublist}
+    \cvDetail{Efficient Reasoning through Cross-Model Latent Knowledge Transfer (in progress)}
+      {Reducing long chain-of-thought inference cost by transferring reasoning knowledge across models in latent space.}
+    \cvDetail{Exploring LLMs' Probabilistic Reasoning Capabilities (EMNLP 2026)}
+      {Built a comprehensive benchmark for reasoning under uncertainty and uncovered systematic failure modes.}
+    \cvDetail{Evaluating LLM Reliability Beyond Accuracy}
+      {Quantified how consistently LLMs answer semantically identical questions.}
+    \cvDetail{Fine-Grained Instruction Control for Image Editing (CVPR 2026)}
+      {Contributed to SliderEdit, a continuous, per-instruction control interface for instruction-based image editing.}
+  \end{cvsublist}
+
+  \cvHeading
+    {Institute of Science and Technology Austria (ISTA)}{Klosterneuburg, Austria}
+    {Machine Learning Intern; Supervisor: Prof. Johann Danzl}{Nov. 2023 - Jul. 2024}
+  \begin{cvsublist}
+    \cvDetail{3D Semantic Segmentation, Microscopy Image Analysis}
+      {Developed an efficient pipeline for automated semantic segmentation of brain microscopy images using \textit{Segment Anything}.}
+  \end{cvsublist}
+
+  \cvHeading
+    {Sharif University of Technology}{Tehran, Iran}
+    {NLP Research Assistant; Advisor: Dr. Ehsaneddin Asgari}{Jul. 2022 - Oct. 2023}
+  \begin{cvsublist}
+    \cvDetail{Persian Syntactic and Semantic Error Correction Tool}
+      {Developed an auto-correction tool for Persian text, combining a BERT-based language model with rule-based modules.}
+  \end{cvsublist}
+
+  \cvHeading
+    {Sharif University of Technology}{Tehran, Iran}
+    {Computer Vision Research Assistant; Advisor: Dr. Mohammad Hossein Rohban}{Sep. 2021 - Jul. 2022}
+  \begin{cvsublist}
+    \cvDetail{Anomaly Detection with Autoencoders; Semantic Segmentation}
+      {Benchmarked reconstruction- and representation-based methods on standard vision datasets.}
+  \end{cvsublist}
+\end{cvlist}
+
+%----------------------------- PUBLICATIONS -----------------------------------
+\section{Publications}
+\begin{cvlist}
+  \item \textbf{Reasoning Under Uncertainty: Exploring Probabilistic Reasoning Capabilities of LLMs}\\
+    {\small\textit{M Pournemat, K Rezaei, G Sriramanan, A Zarei, H Eghbalzadeh, Y Wang, J Fu, F Peng, Z Wang, X Feng, N Noorshams, S Feizi} - (\textbf{EMNLP 2026}, Main Conference)}
+  \item \textbf{SliderEdit: Continuous Image Editing with Fine-Grained Instruction Control}\\
+    {\small\textit{A Zarei, S Basu, M Pournemat, S Nag, R Rossi, S Feizi} - (\textbf{CVPR 2026}, Oral Presentation)}
+  \item \textbf{Same Question, Different Answers: Evaluating LLM Reliability Beyond Accuracy}\\
+    {\small\textit{K Faghih, Y Cheng, S Saha, M Pournemat, A Gerami, S Feizi} - (Under Review)}
+\end{cvlist}
+
+%---------------------------- WORK EXPERIENCE ---------------------------------
+\needspace{13\baselineskip}
+\section{Work Experience}
+\begin{cvlist}
+  \cvHeading
+    {Behin Bazaar Marketing Agency}{Tehran, Iran}
+    {Data Analyst, Business Intelligence}{Apr. 2023 - Oct. 2023}
+  \begin{cvsublist}
+    \cvDetail{Data Analysis, Database Design, Data Preprocessing, Visualization, Reporting}
+      {Designed the analytics database and delivered SQL and Power BI dashboards used for campaign decisions.}
+  \end{cvsublist}
+
+  \cvHeading
+    {AIMedic}{Tehran, Iran}
+    {Machine Learning for Healthcare Intern}{Jul. 2021 - Sept. 2021}
+  \begin{cvsublist}
+    \cvDetail{Data Science, Classification, Semantic Segmentation}
+      {Built and evaluated classification and segmentation models for medical imaging data.}
+  \end{cvsublist}
+\end{cvlist}
+
+%--------------------------- SELECTED PROJECTS --------------------------------
+\section{Selected Projects}
+\begin{cvflat}
+  \cvProject{Quantifying Attributional Bias in LLM Toxicity Detection}{Nov. 2025}
+    {Measuring how toxicity scores for identical comments change when attributed to different author identities.}
+  \cvProject{Benchmarking Multi-Stage Vulnerability Reasoning in LLMs}{Oct. 2025}
+    {Evaluating the effect of explicit reasoning and post-verification on LLM performance in vulnerability detection.}
+  \cvProject{Explainable Detection of Online Sexism}{May 2022}
+    {SemEval-2023, Task 10: hierarchical classification and explanation of sexist content.}
+  \cvProject{Recommender System Design}{May 2021}
+    {Content-based, collaborative filtering, and hybrid recommenders with offline evaluation of ranking quality.}
+\end{cvflat}
+
+%------------------------ TEACHING ASSISTANT EXPERIENCE -----------------------
+\section{Teaching Assistant Experience}
+\begin{cvflat}
+  \item \textbf{Introduction to Artificial Intelligence}: Fall 2024
+  \item \textbf{Data Structures and Algorithms}: Fall 2022
+  \item \textbf{Natural Language Processing}: Spring 2022
+  \item \textbf{Computer Simulation}: Fall 2021
+  \item \textbf{Probability and Statistics}: Spring 2021
+\end{cvflat}
+
+%--------------------------- RELEVANT COURSEWORK ------------------------------
+\section{Relevant Coursework}
+\begin{cvflat}
+  \item \textbf{Natural Language Processing}: 4/4 (A)
+  \item \textbf{Long-Context Language Models}: 4/4 (A)
+  \item \textbf{Multimodal Foundation Models}: 4/4 (A)
+  \item \textbf{Large Language Models Security and Privacy}: 4/4 (A)
+  \item \textbf{Advanced Numerical Optimization}: 4/4 (A)
+  \item \textbf{Artificial Intelligence}: 20/20
+  \item \textbf{Data Structures and Algorithms}: 19.6/20
+  \item \textbf{Stanford CS229 - Machine Learning}: online, audited
+  \item \textbf{Natural Language Processing Specialization}: Coursera
+\end{cvflat}
+
+%---------------------------- TECHNICAL SKILLS --------------------------------
+\section{Technical Skills}
+\begin{cvflat}
+  \item \textbf{Programming Languages:} Python, Java, C, SQL, JavaScript, PHP
+  \item \textbf{Machine Learning Libraries:} PyTorch, Hugging Face Transformers, TensorFlow Keras, NumPy, Pandas, scikit-learn
+  \item \textbf{Web Development \& Database:} HTML/CSS, jQuery, Bootstrap, MySQL, PostgreSQL, SQL Server
+  \item \textbf{Miscellaneous:} Microsoft Office, Power BI, Docker, Git, Linux, \LaTeX
+\end{cvflat}
+
+%-------------------------------- LANGUAGES -----------------------------------
+\section{Languages}
+\small \textbf{Persian:} native \hspace{10pt} \textbf{English:} proficient \hspace{10pt} \textbf{Spanish:} low proficiency \hspace{10pt} \textbf{Turkish:} low proficiency
+
+\end{document}
