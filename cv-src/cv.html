@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Mobina Pournemat — Curriculum Vitae</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+:root{
+  --ink:#16191d;
+  --body:#2b2f36;
+  --muted:#5c626c;
+  --faint:#7b8189;
+  --rule:#c9cdd3;
+  --accent:#1a4f8a;
+}
+@page { size: Letter; margin: 0.48in 0.62in 0.48in 0.62in; }
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+body{
+  font-family:'Source Sans 3', 'Liberation Sans', sans-serif;
+  font-size:9.6pt;
+  line-height:1.32;
+  color:var(--body);
+  font-feature-settings:"kern" 1,"liga" 1;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent); text-decoration:none;}
+strong{color:var(--ink); font-weight:600;}
+
+/* ── HEADER ── */
+.name{
+  font-family:'Source Serif 4', 'Liberation Serif', Georgia, serif;
+  font-size:23pt;
+  font-weight:600;
+  letter-spacing:-0.015em;
+  line-height:1.05;
+  color:var(--ink);
+  text-align:center;
+}
+.contact{
+  text-align:center;
+  font-size:9.1pt;
+  color:var(--muted);
+  margin-top:5px;
+}
+.contact a{color:var(--accent);}
+.contact .sep{color:var(--rule); padding:0 5px;}
+.tagline{
+  text-align:center;
+  font-size:8.6pt;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-top:6px;
+  font-weight:600;
+}
+
+/* ── SECTIONS ── */
+section{margin-top:11px; break-inside:auto;}
+h2{break-after:avoid;}
+.entry,.pub{break-inside:avoid;}
+li{break-inside:avoid;}
+h2{
+  font-family:'Source Serif 4', 'Liberation Serif', Georgia, serif;
+  font-size:10.3pt;
+  font-weight:700;
+  letter-spacing:.085em;
+  text-transform:uppercase;
+  color:var(--ink);
+  border-bottom:1px solid var(--rule);
+  padding-bottom:2.5px;
+  margin-bottom:7px;
+}
+
+/* ── ENTRY (org / place / role / date) ── */
+.entry{margin-bottom:6px;}
+.entry:last-child{margin-bottom:0;}
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:14px;
+}
+.row .l{flex:1; min-width:0;}
+.row .r{
+  flex-shrink:0;
+  font-size:9.1pt;
+  color:var(--muted);
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.org{font-weight:600; color:var(--ink); font-size:10.1pt;}
+.role{font-style:italic; color:var(--body);}
+.place{color:var(--faint); font-style:normal;}
+
+/* ── BULLETS ── */
+ul{list-style:none; margin-top:2.5px;}
+li{
+  position:relative;
+  padding-left:11px;
+  margin-bottom:2px;
+}
+li:last-child{margin-bottom:0;}
+li::before{
+  content:"";
+  position:absolute;
+  left:1.5px;
+  top:.52em;
+  width:3.2px; height:3.2px;
+  border-radius:50%;
+  background:var(--rule);
+}
+li .lead{font-weight:600; color:var(--ink);}
+.sub{margin-left:2px;}
+.tag{
+  font-size:8.2pt;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:var(--accent);
+  text-transform:uppercase;
+}
+
+/* ── PUBLICATIONS ── */
+.pub{margin-bottom:5.5px;}
+.pub:last-child{margin-bottom:0;}
+.pub-title{font-weight:600; color:var(--ink);}
+.pub-authors{color:var(--muted); font-size:9.15pt;}
+.pub-authors .me{font-weight:600; color:var(--body); text-decoration:underline; text-underline-offset:2px; text-decoration-color:var(--rule);}
+.venue{font-weight:600; color:var(--accent);}
+.pub{padding-left:18px; text-indent:-18px;}
+.pub-num{
+  display:inline-block; width:18px; text-indent:0;
+  font-size:9.1pt; color:var(--faint); font-variant-numeric:tabular-nums;
+}
+.pub-title{display:inline;}
+.pub-authors{text-indent:0;}
+
+/* ── COMPACT LINE LISTS ── */
+.kv{margin-bottom:2.5px;}
+.kv:last-child{margin-bottom:0;}
+.kv .k{font-weight:600; color:var(--ink);}
+
+.two-col{
+  column-count:2;
+  column-gap:26px;
+}
+.two-col li{break-inside:avoid;}
+
+span.sep{color:var(--rule);}
+.note{font-size:8.5pt; color:var(--faint); font-style:italic;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name">Mobina Pournemat</div>
+  <div class="tagline">Ph.D. Candidate in Computer Science &middot; University of Maryland</div>
+  <div class="contact">
+    <a href="mailto:mpournem@umd.edu">mpournem@umd.edu</a><span class="sep">|</span><a href="https://mobinapournemat.github.io/">mobinapournemat.github.io</a><span class="sep">|</span><a href="https://scholar.google.com/citations?user=x3SgPd8AAAAJ&amp;hl=en">Google Scholar</a><span class="sep">|</span><a href="https://www.linkedin.com/in/mobina-pournemat-3a38b0211">LinkedIn</a><span class="sep">|</span><a href="https://github.com/Mobinapournemat">GitHub</a>
+  </div>
+</header>
+
+<section>
+  <h2>Research Interests</h2>
+  <div>Large language models and reasoning &mdash; with emphasis on <strong>efficient inference and reasoning</strong>, <strong>reliable and faithful model behavior</strong>, and <strong>rigorous evaluation and benchmarking</strong>. Additional experience in multimodal generative models and computer vision.</div>
+</section>
+
+<section>
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="row">
+      <div class="l"><span class="org">University of Maryland, College Park</span> <span class="place">&mdash; College Park, MD, USA</span></div>
+      <div class="r">Aug. 2024 &ndash; Present</div>
+    </div>
+    <div class="row">
+      <div class="l"><span class="role">Ph.D. in Computer Science</span> &mdash; Advised by Prof. Soheil Feizi</div>
+      <div class="r">GPA: 4.0 / 4.0</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <div class="l"><span class="org">Sharif University of Technology</span> <span class="place">&mdash; Tehran, Iran</span></div>
+      <div class="r">Sep. 2018 &ndash; Feb. 2023</div>
+    </div>
+    <div class="row">
+      <div class="l"><span class="role">B.Sc. in Computer Engineering</span></div>
+      <div class="r"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Publications</h2>
+
+  <div class="pub">
+    <span class="pub-num">[1]</span><span class="pub-title">Reasoning Under Uncertainty: Exploring Probabilistic Reasoning Capabilities of LLMs</span>
+    <div class="pub-authors"><span class="me">M. Pournemat</span>, K. Rezaei, G. Sriramanan, A. Zarei, H. Eghbalzadeh, Y. Wang, J. Fu, F. Peng, Z. Wang, X. Feng, N. Noorshams, S. Feizi</div>
+    <div class="pub-authors"><span class="venue">EMNLP 2026 (Main Conference)</span> <span class="sep">&middot;</span> <a href="https://arxiv.org/abs/2509.10739">arXiv:2509.10739</a></div>
+  </div>
+
+  <div class="pub">
+    <span class="pub-num">[2]</span><span class="pub-title">SliderEdit: Continuous Image Editing with Fine-Grained Instruction Control</span>
+    <div class="pub-authors">A. Zarei, S. Basu, <span class="me">M. Pournemat</span>, S. Nag, R. Rossi, S. Feizi</div>
+    <div class="pub-authors"><span class="venue">CVPR 2026 (Oral)</span> <span class="sep">&middot;</span> <a href="https://arxiv.org/abs/2511.09715">arXiv:2511.09715</a> <span class="sep">&middot;</span> <a href="https://armanzarei.github.io/SliderEdit/">project page</a></div>
+  </div>
+
+  <div class="pub">
+    <span class="pub-num">[3]</span><span class="pub-title">Same Question, Different Answers: Evaluating LLM Reliability Beyond Accuracy</span>
+    <div class="pub-authors">K. Faghih, Y. Cheng, S. Saha, <span class="me">M. Pournemat</span>, A. Gerami, S. Feizi</div>
+    <div class="pub-authors"><span class="venue">Under review</span> <span class="sep">&middot;</span> <a href="https://arxiv.org/abs/2607.22554">arXiv:2607.22554</a></div>
+  </div>
+</section>
+
+<section>
+  <h2>Research Experience</h2>
+
+  <div class="entry">
+    <div class="row">
+      <div class="l"><span class="org">University of Maryland, College Park</span> <span class="place">&mdash; College Park, MD, USA</span></div>
+      <div class="r">Aug. 2024 &ndash; Present</div>
+    </div>
+    <div class="row"><div class="l"><span class="role">Graduate Research Assistant</span> &mdash; Advisor: Prof. Soheil Feizi</div></div>
+    <ul>
+      <li><span class="lead">Efficient Reasoning through Cross-Model Latent Knowledge Transfer</span> <span class="tag">&mdash; in progress</span><br />
+        Reducing the inference cost of long chain-of-thought reasoning by transferring knowledge between models in latent space rather than through generated tokens, so that a smaller model inherits a stronger model's reasoning behavior at a fraction of the decoding budget.</li>
+      <li><span class="lead">Probabilistic Reasoning Capabilities of LLMs</span> <span class="tag">&mdash; EMNLP 2026 Main</span><br />
+        Built a comprehensive benchmark and evaluation suite measuring how well frontier LLMs reason under uncertainty; ran large-scale experiments across open- and closed-weight models and characterized systematic failure modes, calibration gaps, and the effect of prompting and inference-time compute.</li>
+      <li><span class="lead">Reliability of LLMs Beyond Accuracy</span><br />
+        Co-developed an evaluation framework quantifying how consistently LLMs answer semantically identical questions, exposing response variance that aggregate accuracy metrics conceal.</li>
+      <li><span class="lead">Fine-Grained Controllability in Image Editing</span> <span class="tag">&mdash; CVPR 2026 Oral</span><br />
+        Contributed to SliderEdit, which turns discrete instruction-based image editing into a continuous, per-instruction control interface for text-to-image diffusion models.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <div class="l"><span class="org">Institute of Science and Technology Austria (ISTA)</span> <span class="place">&mdash; Klosterneuburg, Austria</span></div>
+      <div class="r">Nov. 2023 &ndash; Jul. 2024</div>
+    </div>
+    <div class="row"><div class="l"><span class="role">Machine Learning Intern</span> &mdash; Supervisor: Prof. Johann Danzl</div></div>
+    <ul>
+      <li><span class="lead">3D Semantic Segmentation of Brain Microscopy Images</span><br />
+        Built an efficient pipeline that adapts the Segment Anything Model to volumetric microscopy data, replacing a manual annotation workflow with automated segmentation for neuroscience researchers.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <div class="l"><span class="org">Sharif University of Technology</span> <span class="place">&mdash; Tehran, Iran</span></div>
+      <div class="r">Jul. 2022 &ndash; Oct. 2023</div>
+    </div>
+    <div class="row"><div class="l"><span class="role">NLP Research Assistant</span> &mdash; Advisor: Dr. Ehsaneddin Asgari</div></div>
+    <ul>
+      <li><span class="lead">Persian Syntactic and Semantic Error Correction</span><br />
+        Developed an auto-correction system for Persian text combining a BERT-based language model with rule-based modules for morphology and spacing.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <div class="l"><span class="org">Sharif University of Technology</span> <span class="place">&mdash; Tehran, Iran</span></div>
+      <div class="r">Sep. 2021 &ndash; Jul. 2022</div>
+    </div>
+    <div class="row"><div class="l"><span class="role">Computer Vision Research Assistant</span> &mdash; Advisor: Dr. Mohammad Hossein Rohban</div></div>
+    <ul>
+      <li><span class="lead">Anomaly Detection and Semantic Segmentation</span><br />
+        Studied autoencoder-based anomaly detection and segmentation methods, and benchmarked reconstruction- and representation-based approaches on standard vision datasets.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Industry Experience</h2>
+
+  <div class="entry">
+    <div class="row">
+      <div class="l"><span class="org">Behin Bazaar Marketing Agency</span> <span class="place">&mdash; Tehran, Iran</span></div>
+      <div class="r">Apr. 2023 &ndash; Oct. 2023</div>
+    </div>
+    <div class="row"><div class="l"><span class="role">Data Analyst, Business Intelligence</span></div></div>
+    <ul>
+      <li>Designed and maintained the analytics database, built ETL and preprocessing pipelines, and delivered dashboards and recurring reports (SQL, Power BI) that informed campaign decisions.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <div class="l"><span class="org">AIMedic</span> <span class="place">&mdash; Tehran, Iran</span></div>
+      <div class="r">Jul. 2021 &ndash; Sep. 2021</div>
+    </div>
+    <div class="row"><div class="l"><span class="role">Machine Learning for Healthcare Intern</span></div></div>
+    <ul>
+      <li>Developed classification and semantic segmentation models for medical imaging data, covering data cleaning, model training, and evaluation.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Selected Projects</h2>
+  <ul>
+    <li><span class="lead">Quantifying Attributional Bias in LLM Toxicity Detection</span> <span class="r">(Nov. 2025)</span><br />
+      Measured how toxicity scores for identical comments shift when attributed to different author identities, isolating a bias that standard toxicity benchmarks do not surface.</li>
+    <li><span class="lead">Benchmarking Multi-Stage Vulnerability Reasoning in LLMs</span> <span class="r">(Oct. 2025)</span><br />
+      Evaluated how explicit reasoning traces and post-hoc verification affect LLM accuracy on software vulnerability detection.</li>
+    <li><span class="lead">Explainable Detection of Online Sexism</span> <span class="r">(May 2022)</span><br />
+      SemEval-2023 Task 10: hierarchical classification and explanation of sexist content in social media text.</li>
+    <li><span class="lead">Recommender System Design</span> <span class="r">(May 2021)</span><br />
+      Built and compared content-based, collaborative-filtering, and hybrid recommenders, with offline evaluation of ranking quality across user cohorts.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Technical Skills</h2>
+  <div class="kv"><span class="k">Programming:</span> Python, Java, C, SQL, JavaScript, PHP</div>
+  <div class="kv"><span class="k">ML &amp; LLMs:</span> PyTorch, Hugging Face Transformers, TensorFlow/Keras, scikit-learn, NumPy, Pandas; GPU training and inference, fine-tuning, in-context learning and prompting, benchmark design and evaluation</div>
+  <div class="kv"><span class="k">Data &amp; Tools:</span> MySQL, PostgreSQL, SQL Server, Power BI, Docker, Git, Linux, LaTeX</div>
+  <div class="kv"><span class="k">Web:</span> HTML/CSS, jQuery, Bootstrap</div>
+</section>
+
+<section>
+  <h2>Teaching Experience</h2>
+  <div>Teaching assistant at the University of Maryland and Sharif University of Technology: <strong>Introduction to Artificial Intelligence</strong> (Fall 2024), <strong>Data Structures and Algorithms</strong> (Fall 2022), <strong>Natural Language Processing</strong> (Spring 2022), <strong>Computer Simulation</strong> (Fall 2021), <strong>Probability and Statistics</strong> (Spring 2021).</div>
+</section>
+
+<section>
+  <h2>Selected Coursework</h2>
+  <div><span class="k" style="font-weight:600;color:var(--ink)">Graduate (UMD):</span> Natural Language Processing, Long-Context Language Models, Multimodal Foundation Models, LLM Security and Privacy &mdash; all A (4.0). <span class="k" style="font-weight:600;color:var(--ink)">Undergraduate:</span> Artificial Intelligence (20/20), Data Structures and Algorithms (19.6/20), Machine Learning (Stanford CS229, audited).</div>
+</section>
+
+<section>
+  <h2>Languages</h2>
+  <div>Persian &mdash; native <span class="sep">&middot;</span> English &mdash; proficient <span class="sep">&middot;</span> Spanish &mdash; elementary <span class="sep">&middot;</span> Turkish &mdash; elementary</div>
+</section>
+
+</body>
+</html>
